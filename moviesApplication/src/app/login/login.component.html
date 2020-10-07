@@ -1,0 +1,37 @@
+<main class="main-div">
+
+  <div class="bg-image img-rounded overflow-hidden push" style="margin-top: 3%">
+    <div class="bg-black-op">
+      <div class="content">
+        <div class="block block-transparent block-themed text-center">
+          <div class="block-content">
+            <h1 class="h1 font-w700 text-white animated fadeInDown push-5">Login for your entering the Movies application</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 3%">
+
+    <form class="login-form">
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        &nbsp;&nbsp;
+        <label class="form-check-label" for="exampleCheck1"> Remember me</label>
+      </div>
+      <button class="btn btn-primary" (click)="login(user);">Login</button>
+      <div style="padding-top: 1%"> <a  [routerLink]="['/register']">New user? Register here!</a> </div>
+    </form>
+  </div>
+</main>

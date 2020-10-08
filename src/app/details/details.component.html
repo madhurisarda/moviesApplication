@@ -1,0 +1,99 @@
+<div class="ui container">
+  <h2 class="ui blue header">
+    {{ selectedMovie?.title }}
+    <!--<div class="sub header">{{ selectedMovie?.title }}</div>-->
+  </h2>
+
+  <div class="ui floating message" id="main" >
+    <div class="ui padded grid" id="content">
+      <div class="middle aligned sixteen wide mobile eight wide tablet four wide computer column">
+        <img *ngIf="selectedMovie?.posterurl" class="ui fluid image" src="{{ selectedMovie?.posterurl }}">
+      </div>
+      <div class="sixteen wide mobile eight wide tablet twelve wide computer column">
+        <div class="ui sub header">
+          <span *ngIf="language == 'pl'">Genres</span>
+          <span *ngIf="language != 'pl'">Genres</span>
+        </div>
+        <div class="ui centered grid">
+          <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
+            {{ selectedMovie?.genres }}
+            <!--<i *ngFor="let genre of selectedMovie?.genres" class="ui orange label">{{ genre.name }}</i>-->
+          </div>
+          <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
+            <div class="ui sub header">
+              <span *ngIf="language == 'pl'">Opis</span>
+              <span *ngIf="language != 'pl'">Overview</span>
+            </div>
+            {{ selectedMovie?.storyline }}
+          </div>
+          <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
+            <div class="ui sub header">
+              <span *ngIf="language == 'pl'">Original Title</span>
+              <span *ngIf="language != 'pl'">Original Title</span>
+            </div>
+            {{ selectedMovie?.originalTitle }}
+          </div>
+          <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
+            <div class="ui sub header">
+              <span *ngIf="language == 'pl'">Duration</span>
+              <span *ngIf="language != 'pl'">Duration</span>
+            </div>
+            {{ selectedMovie?.duration }}
+          </div>
+          <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
+            <div class="ui sub header">
+              <span *ngIf="language == 'pl'">Ocena</span>
+              <span *ngIf="language != 'pl'">Vote average</span>
+            </div>
+            <div class="ui blue statistic">
+              <div class="text value">{{ selectedMovie?.imdbRating }}</div>
+            </div>
+          </div>
+
+          <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
+            <div class="ui sub header">
+              <span *ngIf="language == 'pl'">Data publikacji</span>
+              <span *ngIf="language != 'pl'">Release date</span></div>
+            <div class="ui blue statistic">
+              <div class="text value">{{ selectedMovie?.releaseDate }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sixteen wide column">
+      <div class="ui large animated fluid button" tabindex="0" (click)="back()">
+        <div class="visible content">
+          <i class="left arrow icon"></i>
+        </div>
+        <div class="hidden content">
+          <span *ngIf="language == 'pl'">Wróć</span>
+          <span *ngIf="language != 'pl'">Back</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui floating message" id="comment">
+
+  <form action="">
+    <div class="ui container">
+      Rating:
+      <div class="ui big fluid action input">
+
+        <input #rating type="number" max="10" min="1" required/><br></div></div><br><br>
+<div class="ui container">
+  Comment:
+  <div class="ui big fluid action input">
+<input #comment
+       type="text"
+       (keyup.enter)="addComment(comment, rating)"><br>
+
+    <div class="ui  grid">
+      <br><br></div></div><br>
+      <div class="computer only tablet only row">
+        <button class="ui big blue right labeled icon button" type="submit" (click)="addComment(comment, ratings)">
+          <span *ngIf="language != 'pl'">Add Comment</span>
+        </button>
+  </div></div></form></div>

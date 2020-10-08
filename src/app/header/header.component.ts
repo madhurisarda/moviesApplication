@@ -8,19 +8,11 @@ import { MoviesService }            from '../movies/movies.service';
 })
 export class HeaderComponent implements OnInit {
   title = 'MovieDB';
-  language : string;
 
   constructor(
     private moviesService: MoviesService
   ) { }
 
   ngOnInit() {
-    this.language = this.moviesService.getLanguage();
-  }
-
-  changeLanguage(lang : string) {
-    if (lang === 'pl') this.moviesService.changeLanguage('pl');
-    else this.moviesService.changeLanguage('en');
-    location.reload();
   }
 }

@@ -7,13 +7,14 @@ export class Movie {
     public posterurl : string,
     public releaseDate : string,
     public imdbRating : number,
-    public comments : any[],
+    public userInput : any[],
     public storyline : string) { }
 }
 // tslint:disable-next-line:class-name
-class comments {
+class userInput {
   constructor(
     public user : string,
     public comment : string,
+    public rating : string,
   ) { }
 }

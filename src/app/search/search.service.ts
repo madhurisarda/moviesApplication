@@ -8,7 +8,6 @@ import 'rxjs/add/operator/map';
 export class SearchService {
   private searchUrl = 'https://api.themoviedb.org/3/search/movie';
   private apiKey = '68b4fe2a513155a58dd0af4adacb281b';
-  private language;
 
   constructor (private http: Http) {
   }

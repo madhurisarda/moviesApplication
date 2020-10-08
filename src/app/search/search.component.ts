@@ -10,7 +10,6 @@ declare var $: any; //jQuery
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  language : string;
   holder: string;
 
   constructor(
@@ -19,9 +18,7 @@ export class SearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.language = this.moviesService.getLanguage();
-    if (this.language == 'pl') this.holder = 'czego szukasz?';
-    else this.holder = 'what are you looking for?';
+    this.holder = 'what are you looking for?';
     this.sticky();
   }
 
@@ -43,6 +40,9 @@ export class SearchComponent implements OnInit {
   }
   logout(){
     this.router.navigate(['/login']);
+  }
+  addMovie(){
+    this.router.navigate(['/addEdit']);
   }
 
 }

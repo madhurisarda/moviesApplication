@@ -17,7 +17,6 @@ export class SearchMoviesComponent implements OnInit {
   total_pages: number;
   page: number;
   query: string;
-  language: string;
   sort: number;
 
   constructor(
@@ -28,7 +27,6 @@ export class SearchMoviesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.language = this.moviesService.getLanguage();
     this.route.params.subscribe(
       params => {
         this.searchMovies(this.query);

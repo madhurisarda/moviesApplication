@@ -1,21 +1,37 @@
-<div class="parent-container">
-  <div class="child-container">
-    <div style="color: white; text-align: center">
-      <h2><b>Register
-      </b></h2></div><br>
-    <div class="form-group">
-      <div class="form-group col-lg-6 col-lg-offset-3 input-group">
-        Name : <input type="text" class="form-control" placeholder="Name" #name>
-        <br>
-        Email Address: <input type="text" class="form-control" placeholder="Email Id"  ngModel email #email>
-        <br>
-        Username : <input type="text" class="form-control" placeholder="username" #uname>
-        <br>
-        Password : <input class="form-control" placeholder="password" type="password" #password>
-        <br>
-        Confirm Password : <input class="form-control" placeholder="Confirm password" type="password" #confirmpassword>
-      </div><br>
-      <button type="button" class="btn btn primary col-lg-2 col-lg-offset-5 " (click)="register();">Register</button>
+<div class="ui floating message" id="register">
+  <div class="ui container">
+    <div class="ui big fluid action input">
+      Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input #name type="text"><br>
     </div>
-  </div>
-</div>
+  </div><br><br>
+  <div class="ui container">
+    <div class="ui big fluid action input">
+      Username :&nbsp;&nbsp;
+      <input #uname type="text"><br>
+    </div>
+  </div><br><br>
+  <div class="ui container">
+    <div class="ui big fluid action input">
+      Email :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input #email type="text"><br>
+    </div>
+  </div><br><br>
+  <div class="ui container">
+    <div class="ui big fluid action input">
+      Password :&nbsp;&nbsp;
+      <input #password type="text"><br>
+    </div>
+  </div><br><br>
+  <div class="ui container">
+    <div class="ui big fluid action input">
+      Confirm Password :&nbsp;
+      <input #confirmpassword type="text"><br>
+    </div>
+  </div><br><br>
+  <div class="ui container">
+  <div class="ui  grid">
+  <div class="computer only tablet only row">
+    <button class="ui big blue right labeled icon button" type="submit" (click)="register()">
+      <span>Register</span>
+    </button></div></div></div>

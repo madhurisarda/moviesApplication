@@ -13,7 +13,6 @@ import {Location} from '@angular/common';
 export class DetailsComponent implements OnInit {
   selectedMovie: Movie;
   errorMessage: string;
-  language: string;
   index: number;
 
   constructor(
@@ -23,40 +22,23 @@ export class DetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.language = this.moviesService.getLanguage();
     this.route.params.subscribe(
       params => {
         console.log(params['title']);
-        let index = params['title'];
-        if (index) this.getDetails(index);
+        let title = params['title'];
+        if (title) this.getDetails(title);
       });
   }
 
-  getDetails(index: number) {
-    this.index= index;
-    this.moviesService.getDetails(index)
-      .subscribe(
-        response => this.selectedMovie = response,
-        error => this.errorMessage = <any>error);
+  getDetails(title: string) {
+    this.selectedMovie = this.moviesService.getDetails(title);
   }
 
   back() {
     this.location.back();
   }
   addComment(comment, rating){
-/*    getData(): this.http.get(this.jsonUrl)
-      .map((res) =>
-{ return res.json()[index]})*/
-/*console.log(this.index+ "hey");*/
-console.log(comment.value);
-
-    /*this.moviesService.getDetails(this.index)
-      .subscribe( selectedMovie => {
-        this.selectedMovie.comments.user = "maddy";
-        this.selectedMovie.comments.comment = comment;
-      });*/
-
-    /*response.username.value = firstJsonObj.user;
-    response.comment.value = firstJsonObj.comment;*/
+    this.moviesService.setComment(this.selectedMovie.title,comment,rating);
+    console.log(comment.value);
   }
 }

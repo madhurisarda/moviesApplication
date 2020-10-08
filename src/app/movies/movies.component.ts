@@ -11,8 +11,7 @@ import { Movie } from './movie';
 })
 
 export class MoviesComponent implements OnInit {
-  movies: Observable<Movie[]>;
-  language: string;
+  movies: any[];
   sort: number;
 
   constructor(
@@ -21,7 +20,6 @@ export class MoviesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.language = this.moviesService.getLanguage();
     this.getMovies();
   }
 
@@ -62,6 +60,16 @@ export class MoviesComponent implements OnInit {
         this.sort = 2;
       }
     }
+  }
+  deleteMovie(title : string) {
+    localStorage.removeItem(title);
+    /*var movieDetails =  JSON.parse(localStorage.getItem(title));
+    movieDetails.*/
+  }
+  editMovie(title : string) {
+    //localStorage.removeItem(title);
+    /*var movieDetails =  JSON.parse(localStorage.getItem(title));
+    movieDetails.*/
   }
   /*onSelect(movie: Movie) {
     this.router.navigate(['./../movie', movie.id]);

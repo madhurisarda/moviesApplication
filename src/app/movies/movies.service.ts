@@ -7,35 +7,30 @@ import { Movie } from './movie';
 
 @Injectable()
 export class MoviesService {
-  //private url = 'https://api.themoviedb.org/3/movie/';
-  //private searchUrl = 'https://api.themoviedb.org/3/search/movie';
- // private apiKey = '68b4fe2a513155a58dd0af4adacb281b';
-  private language;
-  private _jsonURL = 'assets/movies.json';
-  id : number;
+  username: string;
+ // username = localStorage.getItem("name");
   constructor (private http: Http) {
-    if (localStorage.getItem('lang') == 'pl') this.language = 'pl';
-    else this.language = 'en';
+
   }
   private jsonUrl = './assets/movies.json';
-  getMovies(): Observable<Movie[]> {
-    return this.http.get(this.jsonUrl)
-      .map(this.extractData)
-      .catch(this.handleError);
-  }
-
-
-  getDetails(index : number) {
-    return this.http.get(this.jsonUrl)
-      .map((res) => { return res.json()[index]})
-      .catch(this.handleError);
-  }
-
-  extractData(res: Response) {
-      let body = res.json();
-      // return just the response, or an empty array if there's no data
-      return body || [];
+  getMovies() {
+    var values =[];
+      var keys = Object.keys(localStorage);
+      var i = keys.length;
+    console.log(keys.length);
+    while ( i > 2 ) {
+      values.push(JSON.parse(localStorage.getItem(keys[i-1])));
+      i--;
     }
+    console.log(values);
+    return values;
+  }
+
+
+  getDetails(title : string) {
+    return JSON.parse(localStorage.getItem(title));
+  }
+
   searchMovies(query: string) {
     //let searchUrl = `${this.searchUrl}?api_key=${this.apiKey}&language=${this.language}&query=${query}`;
 
@@ -52,16 +47,6 @@ export class MoviesService {
       .catch(this.handleError);*/
   }
 
-  changeLanguage(lang: string) {
-    localStorage.setItem('lang', lang);
-    this.language = lang;
-  }
-
-  getLanguage() {
-    return this.language;
-  }
-
-
 
   private handleError (error: Response | any) {
     let errMsg: string;
@@ -74,5 +59,13 @@ export class MoviesService {
     }
     console.error(errMsg);
     return Observable.throw(errMsg);
+  }
+
+  setComment(title: string, comment: string, rating: string) {
+    var name ="name";
+    var selectedMovie = JSON.parse(localStorage.getItem(title));
+    selectedMovie['userInput'] = [];
+    selectedMovie['userInput'].push("{\"user\":"+localStorage.getItem(name)+",\"comment\":"+comment+",\"rating\":"+rating+"}");
+    localStorage.setItem(title, JSON.stringify(selectedMovie));
   }
 }

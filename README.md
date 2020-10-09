@@ -19,7 +19,7 @@ A movies application which is using the Chrome's local storage to store all the 
   * the release date
   * the imdb rating
   * the original title
-* you can see the details of the selected movie such as:
+* You can see the details of the selected movie such as:
   * the poster
   * the title
   * the storyline

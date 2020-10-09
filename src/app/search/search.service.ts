@@ -25,11 +25,6 @@ export class SearchService {
       .catch(this.handleError);
   }
 
-  private extractData(res: Response) {
-    let body = res.json();
-    return body.results || {};
-  }
-
   private handleError(error: Response | any) {
     let errMsg: string;
     if (error instanceof Response) {

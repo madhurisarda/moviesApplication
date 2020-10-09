@@ -40,7 +40,7 @@ A movies application which is using the Chrome's local storage to store all the 
     * the existing movie details would prepopulate and the admin user can update the details and click on submit.
 * Delete Movie
     * can delete a particular movie
-
+------
 ### Prerequisites
 
 This project has dependencies that require Node 6.9.0 or higher, together with NPM 3 or higher.

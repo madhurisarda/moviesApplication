@@ -70,4 +70,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ### Live demo
 
-Working version of the app is published at 
+Demo video is available at [DemoVideo](https://drive.google.com/drive/folders/1BXapVFoXJq5xn4BHPTMHHqh-4-QLkf31?usp=sharing)

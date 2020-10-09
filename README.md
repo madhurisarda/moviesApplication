@@ -11,15 +11,14 @@
 ## User
 
 A movies application which is using the Chrome's local storage to store all the movies.
-* you can search for any movie
-* videos matching your search are shown in the list of videos
-* in the video list you can see the information about:
+* You can search for any movie
+  * videos matching your search are shown in the list of videos
+* In the video list you can see the information about:
   * the poster
   * the title
   * the release date
   * the imdb rating
   * the original title
-
 * you can see the details of the selected movie such as:
   * the poster
   * the title

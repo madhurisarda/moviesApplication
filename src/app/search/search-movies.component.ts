@@ -14,8 +14,6 @@ export class SearchMoviesComponent implements OnInit {
   searches: Search;
   movies: Movie[];
   total_results: number;
-  total_pages: number;
-  page: number;
   query: string;
   sort: number;
 
@@ -68,12 +66,4 @@ export class SearchMoviesComponent implements OnInit {
       }
     }
   }
-
-  goPage(go: number) {
-    this.searchMovies(this.query);
-  }
-
-  /*onSelect(movie: Movie) {
-    this.router.navigate(['./../movie', movie.id]);
-  }*/
 }

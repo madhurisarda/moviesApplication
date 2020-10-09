@@ -12,8 +12,6 @@ import {Location} from '@angular/common';
 })
 export class DetailsComponent implements OnInit {
   selectedMovie: Movie;
-  errorMessage: string;
-  index: number;
 
   constructor(
     private moviesService: MoviesService,
@@ -38,6 +36,5 @@ export class DetailsComponent implements OnInit {
   }
   addComment(comment, rating){
     this.moviesService.setComment(this.selectedMovie.title,comment,rating);
-    console.log(comment.value);
   }
 }

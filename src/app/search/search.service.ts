@@ -12,18 +12,14 @@ export class SearchService {
   searchMovies(query: string) {
     var url = window.location.href;
     var urlArray = url.split("/");
-    console.log(urlArray[5]);
     var searchMovieList = [];
     return this.http
       .get(this.jsonUrl)
       .map((res) => {
-        console.log(res.json());
         for (let movie of res.json()) {
           if (movie.title.toLowerCase().includes(urlArray[5].toLowerCase()))
             searchMovieList.push(movie);
         }
-
-        console.log(searchMovieList);
         return searchMovieList;
       })
       .catch(this.handleError);
@@ -43,7 +39,6 @@ export class SearchService {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
     return Observable.throw(errMsg);
   }
 }

@@ -6,9 +6,12 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
+
   constructor(private router: Router) {
   }
+
   login(uname,password) {
     var name = localStorage.getItem("name");
     var pass = localStorage.getItem("password");
@@ -19,6 +22,7 @@ export class LoginComponent {
       alert("Invalid password. Please try again");
     }
   }
+
   register() {
     this.router.navigate(['/register']);
   }

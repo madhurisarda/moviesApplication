@@ -10,7 +10,6 @@ export class HeaderComponent implements OnInit {
   title = 'MovieDB';
 
   constructor(
-    private moviesService: MoviesService
   ) { }
 
   ngOnInit() {

@@ -1,8 +1,8 @@
 <div class="ui container">
+  <br>
   <h2 class="ui blue header">
     {{ selectedMovie?.title }}
   </h2>
-
   <div class="ui floating message" id="main" >
     <div class="ui padded grid" id="content">
       <div class="middle aligned sixteen wide mobile eight wide tablet four wide computer column">
@@ -36,13 +36,24 @@
           </div>
           <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
             <div class="ui sub header">
+              UserName : </div>
+          {{selectedMovie.userInput.user}}<br></div>
+          <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
+            <div class="ui sub header">
+              Comment : </div>
+          {{selectedMovie.userInput.comment}}<br></div>
+          <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
+            <div class="ui sub header">
+              Rating : </div>
+          {{selectedMovie.userInput.rating}}<br></div>
+          <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
+            <div class="ui sub header">
               <span>Vote average</span>
             </div>
             <div class="ui blue statistic">
               <div class="text value">{{ selectedMovie?.imdbRating }}</div>
             </div>
           </div>
-
           <div  class="sixteen wide mobile sixteen wide tablet sixteen wide computer column">
             <div class="ui sub header">
               <span>Release date</span></div>
@@ -52,16 +63,8 @@
           </div>
         </div>
       </div>
-      <div class="ui sub header">
-      User:<br>
-      {{selectedMovie.userInput.user}}<br>
-      Comment:
-      {{selectedMovie.userInput.comment}}<br>
-      Rating:
-      {{selectedMovie.userInput.rating}}<br>
       </div>
     </div>
-
     <div class="sixteen wide column">
       <div class="ui large fluid button" tabindex="0" (click)="back()">
         <div class="visible content">
@@ -70,9 +73,7 @@
       </div>
     </div>
   </div>
-</div>
 <div class="ui floating message" id="comment">
-
   <form action="">
     <div class="ui container">
       Rating:
@@ -85,7 +86,6 @@
 <input #comment
        type="text"
        (keyup.enter)="addComment(comment.value, rating.value)"><br>
-
     <div class="ui  grid">
       <br><br></div></div><br>
       <div class="computer only tablet only row">

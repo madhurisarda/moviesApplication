@@ -21,10 +21,7 @@ export class AddEditComponent  implements OnInit {
   selectedMovie: Movie;
   movie = {};
 
-  constructor(private route: ActivatedRoute,    private moviesService: MoviesService,private location: Location,private router: Router) {
-
-  }
-
+  constructor(private route: ActivatedRoute,    private moviesService: MoviesService,private location: Location,private router: Router) {  }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -37,7 +34,6 @@ export class AddEditComponent  implements OnInit {
     this.location.back();
   }
 
-
   addMovieToDB(){
     this.movie['title'] = this.title.nativeElement.value;
     this.movie['genres'] = this.genres.nativeElement.value;
@@ -47,12 +43,11 @@ export class AddEditComponent  implements OnInit {
     this.movie['storyline'] = this.storyline.nativeElement.value;
     this.movie['imdbRating'] = this.imdbRating.nativeElement.value;
     this.movie['posterurl'] = this.posterurl.nativeElement.value;
-    console.log(JSON.stringify(this.movie));
     localStorage.setItem(this.title.nativeElement.value, JSON.stringify(this.movie));
     /*alert("movie updated successfully");*/
     /*this.router.navigate(['/home']);*/
-
   }
+
   editMovie(title:string) {
     this.selectedMovie = this.moviesService.getDetails(title);
     this.title.nativeElement.value = this.selectedMovie.title;
@@ -65,6 +60,7 @@ export class AddEditComponent  implements OnInit {
     this.posterurl.nativeElement.value = this.selectedMovie.posterurl;
     this.addMovieToDB();
   }
+
   addMovie() {
     // tslint:disable-next-line:max-line-length
     if (this.title.nativeElement.value.length <= 0 || this.genres.nativeElement.value.length <= 0 || this.duration.nativeElement.value.length <= 0

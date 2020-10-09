@@ -41,8 +41,5 @@ export class SearchComponent implements OnInit {
   logout(){
     this.router.navigate(['/login']);
   }
-  addMovie(){
-    this.router.navigate(['/addEdit']);
-  }
 
 }

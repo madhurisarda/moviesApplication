@@ -1,3 +1,30 @@
+<div class="ui floating message" id="login">
+  <div class="ui container">
+    Username :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="ui fluid action input">
+      <input #uname type="text"><br>
+    </div>
+  </div><br><br>
+  <div class="ui container">
+    Password :&nbsp;&nbsp;
+    <div class="ui fluid action input">
+      <input #password type="password"><br>
+    </div>
+  </div><br><br>
+  <div class="ui container">
+    <div class="ui grid">
+      <div class="computer only tablet only row">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="ui big blue right labeled icon button" type="submit" (click)="login(uname,password)">Login</button><br>
+        &nbsp;&nbsp;&nbsp;<button class="ui big blue right labeled icon button" type="submit" (click)="register()">Register</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--
 <div class="ui container" align = "center">
   <div style="text-align: center;font-weight: bold;text-decoration: underline; font-size:40px">
     Movies application
@@ -17,3 +44,4 @@
           </div>
       </div>
 </div>
+-->

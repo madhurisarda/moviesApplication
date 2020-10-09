@@ -10,25 +10,9 @@
         </div>
       </div>
     </div>
-    <div class="right aligned middle aligned sixteen wide mobile eight wide tablet eight wide computer column">
-      <div class="ui text compact menu">
-        <div class="header item">
-          <span>Sort by</span>
-        </div>
-        <a class="item" (click)="sortMovies('title')">
-          <i class="font icon"></i>
-          <span>Title</span>
-        </a>
-        <a class="item" (click)="sortMovies('popularity')">
-          <i class="empty star icon"></i>
-          <span>Popularity</span>
-        </a>
-      </div>
-    </div>
-  </div>
-    <div *ngFor="let movie of movies;">
+    <div class="card">
       <div class="ui link five doubling cards" >
-      <div class="card" [routerLink]="['/movie/'+movie?.title]" routerLinkActive="active">
+        <div class="card" [routerLink]="['/movie/'+movie?.title]" *ngFor="let movie of movies;" routerLinkActive="active">
         <div class="image">
           <img *ngIf="movie?.posterurl" class="ui fluid image" src="{{ movie?.posterurl }}">
         </div>
@@ -53,17 +37,14 @@
         </span>
           {{ movie.releaseDate }}
         </div>
+          <div class="computer only tablet only row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="ui big blue right labeled icon button" type="submit" [routerLink]="['/home']" (click)="deleteMovie(movie.title);"><span class="glyphicon glyphicon-trash"></span>&nbsp;Delete</button>
+          </div><br>
+          <div class="computer only tablet only row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="ui big blue right labeled icon button" [routerLink]="['/addEdit/'+movie?.title]" type="submit"><span class="glyphicon glyphicon-edit"></span>&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+          </div><br>
       </div>
       </div>
-      <br>
-      <div class="computer only tablet only row">
-        <button class="ui big blue right labeled icon button" type="submit" (click)="deleteMovie(movie.title);">Delete</button>
-      </div><br>
-      <div class="computer only tablet only row">
-        <button class="ui big blue right labeled icon button" type="submit" (click)="editMovie(movie.title);">Edit</button>
-      </div>
-
-
-
   </div>
 </div>
+

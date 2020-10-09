@@ -1,4 +1,4 @@
-import { Injectable }               from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import { Http, Response }           from '@angular/http';
 import { Observable }               from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -6,25 +6,40 @@ import 'rxjs/add/operator/map';
 import { Movie } from './movie';
 
 @Injectable()
-export class MoviesService {
-  username: string;
- // username = localStorage.getItem("name");
+export class MoviesService{
   constructor (private http: Http) {
-
+    this.getJSON().subscribe((data) => {
+    });
   }
+  userInput = {};
+  public getJSON(): Observable<any> {
+    return this.http.get('./assets/movies.json');
+  }
+
+
+
+
+    /*return this.http.get(this.jsonUrl)
+         .map((res) => { return res.json()})
+        .catch(this.handleError);
+  }*/
+
+
   private jsonUrl = './assets/movies.json';
   getMovies() {
-    var values =[];
-      var keys = Object.keys(localStorage);
-      var i = keys.length;
-    console.log(keys.length);
-    while ( i > 2 ) {
-      values.push(JSON.parse(localStorage.getItem(keys[i-1])));
+    var values = [];
+    var keys = Object.keys(localStorage);
+    var i = keys.length;
+    while (i > 0) {
+      if (keys[i - 1] == "name" || keys[i - 1] == "password") {
+      } else {
+        values.push(JSON.parse(localStorage.getItem(keys[i - 1])));
+      }
       i--;
     }
-    console.log(values);
     return values;
   }
+
 
 
   getDetails(title : string) {
@@ -62,10 +77,11 @@ export class MoviesService {
   }
 
   setComment(title: string, comment: string, rating: string) {
-    var name ="name";
     var selectedMovie = JSON.parse(localStorage.getItem(title));
-    selectedMovie['userInput'] = [];
-    selectedMovie['userInput'].push("{\"user\":"+localStorage.getItem(name)+",\"comment\":"+comment+",\"rating\":"+rating+"}");
+    this.userInput['user'] = localStorage.getItem('name');
+    this.userInput['comment'] = comment;
+    this.userInput['rating'] = rating;
+    selectedMovie['userInput'] = this.userInput;
     localStorage.setItem(title, JSON.stringify(selectedMovie));
   }
 }

@@ -1,10 +1,10 @@
-<div class="ui blue inverted borderless stackable menu">
+<div class="ui blue inverted borderless stackable menu" >
 <div class="right menu ">
   <a  class="header item"  (click)="logout()">Logout</a><br><br>
 </div></div>
 <div class="ui floating message" id="search">
   <div class="ui container">
-    <div class="ui big fluid action input">
+    <div class="ui big fluid action input" >
       <input #inputSearch
              type="text"
              [placeholder]="holder"
@@ -23,8 +23,8 @@
           </button>
         </div>
       </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <div class="computer only tablet only row">
-        <button class="ui big blue right labeled icon button" type="submit" (click)="addMovie();">Add</button>
+      <div class="computer only tablet only row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="ui big blue right labeled icon button" type="submit" [routerLink]="['/addEdit/add']"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add</button>
       </div>
     </div>
 

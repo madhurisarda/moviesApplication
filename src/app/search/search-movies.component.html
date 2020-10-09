@@ -1,21 +1,25 @@
 <div class="ui container">
   <div class="ui grid">
-    <div class="middle aligned sixteen wide mobile eight wide tablet eight wide computer column">
+    <div
+      class="middle aligned sixteen wide mobile eight wide tablet eight wide computer column"
+    >
       <div class="ui large breadcrumb">
         <a class="section" routerLink="/home" routerLinkActive="active">
           <span>Home</span>
         </a>
         <i class="right angle icon divider"></i>
         <div class="active section">
-            <i class="search icon"></i>
-            {{ total_results }}
-            <span>search results for </span>
-            <span class="ui blue header"> {{ query }}</span>
+          <i class="search icon"></i>
+          {{ total_results }}
+          <span>search results for </span>
+          <span class="ui blue header"> {{ query }}</span>
         </div>
       </div>
     </div>
 
-    <div class="right aligned middle aligned sixteen wide mobile eight wide tablet eight wide computer column">
+    <div
+      class="right aligned middle aligned sixteen wide mobile eight wide tablet eight wide computer column"
+    >
       <div class="ui text compact menu">
         <div class="header item">
           <span>Sort by</span>
@@ -33,10 +37,18 @@
   </div>
 
   <div class="ui link five doubling cards">
-    <div class="card" *ngFor="let movie of movies" [routerLink]="['/movie/'+movie.id]" routerLinkActive="active">
+    <div
+      class="card"
+      *ngFor="let movie of movies"
+      [routerLink]="['/movie/' + movie?.title]"
+      routerLinkActive="active"
+    >
       <div class="image">
-        <img *ngIf="movie.poster_path" class="ui middle aligned tiny image" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}">
-        <img *ngIf="!movie.poster_path" class="ui middle aligned tiny image" src="https://placehold.it/500x740">
+        <img
+          *ngIf="movie?.posterurl"
+          class="ui fluid image"
+          src="{{ movie?.posterurl }}"
+        />
       </div>
       <div class="content">
         <div class="header">
@@ -45,38 +57,43 @@
 
         <div class="description">
           <span>Popularity</span>
-          : {{ movie.popularity  | number : '1.0-1' }}
-          <br>
-          <span>Vote count</span>
-          : {{ movie.vote_count }}
+          : {{ movie.imdbRating | number: "1.0-1" }}
+          <br />
+          <span>Original Title</span>
+          : {{ movie.originalTitle }}
         </div>
       </div>
       <div class="extra content">
         <span class="right floated">
           <h3>
             <i class="star icon"></i>
-            {{ movie.vote_average }}
+            {{ movie.imdbRating }}
           </h3>
-
         </span>
-        {{ movie.release_date }}
+        {{ movie.releaseDate }}
       </div>
     </div>
   </div>
 
-
   <div class="ui equal width grid">
-
     <!-- prev -->
     <div class="computer only tablet only column">
-      <button [disabled]="page == 1" class="ui fluid blue labeled icon button" (click)="goPage(-1)">
+      <button
+        [disabled]="page == 1"
+        class="ui fluid blue labeled icon button"
+        (click)="goPage(-1)"
+      >
         <i class="left chevron icon"></i>
         <span>Previous</span>
       </button>
     </div>
 
     <div class="mobile only column">
-      <button [disabled]="page == 1" class="ui fluid blue button" (click)="goPage(-1)">
+      <button
+        [disabled]="page == 1"
+        class="ui fluid blue button"
+        (click)="goPage(-1)"
+      >
         <i class="left chevron icon"></i>
       </button>
     </div>
@@ -85,25 +102,32 @@
     <!-- pages -->
     <div class="column">
       <div class="ui fluid basic disabled button">
-        {{page}} / {{ total_pages }}
+        {{ page }} / {{ total_pages }}
       </div>
     </div>
     <!-- -->
 
     <!-- prev -->
     <div class="computer only tablet only column">
-      <button [disabled]="page == total_pages" class="ui fluid blue right labeled icon button" (click)="goPage(1)">
+      <button
+        [disabled]="page == total_pages"
+        class="ui fluid blue right labeled icon button"
+        (click)="goPage(1)"
+      >
         <span>Next</span>
         <i class="right chevron icon"></i>
       </button>
     </div>
 
     <div class="mobile only column">
-      <button [disabled]="page == total_pages" class="ui fluid blue button" (click)="goPage(1)">
+      <button
+        [disabled]="page == total_pages"
+        class="ui fluid blue button"
+        (click)="goPage(1)"
+      >
         <i class="right chevron icon"></i>
       </button>
     </div>
     <!-- -->
-
   </div>
 </div>

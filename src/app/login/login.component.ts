@@ -7,20 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
-  logins = [];
   constructor(private router: Router) {
   }
   login(uname,password) {
     var name = localStorage.getItem("name");
     var pass = localStorage.getItem("password");
     if(uname.value == (name) && password.value == (pass)) {
-      alert('You have successfully logged in.');
-
-      this.logins.push(localStorage.getItem("name") + " was logged in.")
       this.router.navigate(['/home']);
     }
-    else{
+    else {
       alert("Invalid password. Please try again");
     }
   }

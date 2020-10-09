@@ -1,0 +1,9 @@
+#AlertDiv h1 {
+  margin:auto;
+  line-height:51px;
+  vertical-align:middle;
+}
+#AlertDiv {
+  color:white;
+  text-align:center;
+}

@@ -24,7 +24,6 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        console.log(params['title']);
         let title = params['title'];
         if (title) this.getDetails(title);
       });

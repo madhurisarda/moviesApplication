@@ -52,15 +52,20 @@
           </div>
         </div>
       </div>
+      <div class="ui sub header">
+      User:<br>
+      {{selectedMovie.userInput.user}}<br>
+      Comment:
+      {{selectedMovie.userInput.comment}}<br>
+      Rating:
+      {{selectedMovie.userInput.rating}}<br>
+      </div>
     </div>
 
     <div class="sixteen wide column">
-      <div class="ui large animated fluid button" tabindex="0" (click)="back()">
+      <div class="ui large fluid button" tabindex="0" (click)="back()">
         <div class="visible content">
-          <i class="left arrow icon"></i>
-        </div>
-        <div class="hidden content">
-          <span>Back</span>
+          <i class="left arrow icon">&nbsp;Back</i>
         </div>
       </div>
     </div>
@@ -84,13 +89,6 @@
     <div class="ui  grid">
       <br><br></div></div><br>
       <div class="computer only tablet only row">
-        <button class="ui big blue right labeled icon button" type="submit" (click)="addComment(comment.value, rating.value)">
-          <span>Add Comment</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="ui big blue right labeled icon button" type="submit" (click)="addComment(comment.value, rating.value)">Add Comment
         </button>
   </div></div></form></div>
-
-<div class="ui floating message" id="comments" *ngFor="let input of selectedMovie?.userInput">
-  <h2 class="ui blue header">
-  {{input?.user}}
-  </h2>
-</div>
